@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Daltile Motores App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/40849e9c5f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Daltile MPd</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                title="todosLosMotores"
+                onclick="mostrarSeccion('todosLosMotores')"
+                class="nav-link"
+                ><i class="fa-solid fa-users"></i> Todos los motores</a
+              >
+            </li>
+            <li class="nav-item">
+              <a title="registro" onclick="mostrarSeccion('registro')" class="nav-link"><i class="fa-solid fa-pencil"></i> Registrar</a>
+            </li>
+            <li class="nav-item">
+              <a title="buscar" onclick="mostrarSeccion('buscar')" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i> Buscar</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="todosLosMotores">
+      <div class="p-3 bg-dark text-white text-center">
+        <h4>Todos los motores</h4>
+      </div>
+      <div class="container">
+        <div class="row" id="cardsMotores"></div>
+      </div>
+    </section>
+    <section id="registro" class="animate_animated_fadeIn">
+      <div class="p-3 bg-dark text-white text-center">
+        <h4>Registrar Motor</h4>
+      </div>
+
+      <form onsubmit="guardarMotor(event)" class="row">
+
+        <div class="d-flex justify-content-center">
+          <div class="card bg-transparent text-primary fw-semibold mt-1 w-50">
+            <div class="card-body font-monospace text-center">
+              <div class="row d-flex justify-content-center">
+                <!--SUSTITUYE EL FORM Y CREA LA UNA SECION -->
+                <div class="col-md-2">
+                  <label for="validationDefault01" class="form-label mb-0">OS</label>
+                  <input type="text" class="form-control text-black border border-2 border border-primary" name="os" id="os" placeholder="77500" required/>
+                </div>
+                <div class="col-md-2">
+                  <label for="validationDefault02" class="form-label mb-0">OT</label>
+                  <input type="text" class="form-control text-black border border-2" name="ot" id="ot" placeholder="80500" required/>
+                </div>
+                <div class="col-md-2">
+                  <label for="validationDefaultUsername" class="form-label mb-0">#Golpe</label>
+                  <input type="text" class="form-control text-black border border-2" name="punch" id="punch" placeholder="A-0100" required/>
+                </div>
+                <div class="col-md-2">
+                  <label for="validationDefault04" class="form-label mb-0">Placa</label>
+                  <select type="text" class="form-select text-black border border-2" name="plate" id="plate" required>
+                    <option>
+                      <ul>Sí</ul>
+                    </option>
+                    <option>
+                      <ul>No</ul>
+                    </option>
+                    <option>
+                      <ul>Ilegible</ul>
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <!--TERMINA EL FORM Y CREA LA UNA SECION -->
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <div class="card bg-transparent text-black fw-semibold mt-1 mb-1 w-50">
+            <div class="card-body text-center">
+              <h4 class="group-text mb-2 border-bottom border-dark">Datos Cliente</h4>
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-4">
+                  <label for="validationDefault03" class="form-label mb-0">Usuario</label>
+                  <input type="text" class="form-control text-white bg-dark" name="user" id="user" placeholder="Juan Cuevas" required/>
+                </div>
+                <div class="col-md-3">
+                  <label for="validationDefault03" class="form-label mb-0">Planta</label>
+                  <input type="text" class="form-control text-white bg-dark" name="plant" id="plant" placeholder="Azulejos" required/>
+                </div>
+                <div class="col-md-2">
+                  <label for="validationDefault03" class="form-label mb-0">Mini</label>
+                  <input type="text" class="form-control text-white bg-dark" name="mini" id="mini" placeholder="FF" required/>
+                </div> 
+                <div class="col-md-3">
+                  <label for="validationDefault04" class="form-label mb-0">Proceso</label>
+                  <select class="form-select text-white bg-dark" name="process" id="process" required>
+                    <option>
+                      <ul>Normal</ul>
+                    </option>
+                    <option>
+                      <ul>Urgente</ul>
+                    </option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationDefault05" class="form-label mb-0 mt-2">Equipo</label>
+                  <input type="text" class="form-control text-white bg-dark" name="equipment" id="equipment" placeholder="Ventilador Enfriamiento" required/>
+                </div>
+                <div class="col-md-3">
+                  <label for="validationDefault03" class="form-label mb-0 mt-2">Aprobador</label>
+                  <input type="text" class="form-control text-white bg-dark" name="approver" id="approver" placeholder="Sandra Marroquin" required/>
+                </div>
+                <div class="col-md-2">
+                  <label for="validationDefault03" class="form-label mb-0 mt-2">Tag</label>
+                  <input type="text" class="form-control text-white bg-dark" name="tag" id="tag" placeholder="A-FF" required/>
+                </div>
+                <div class="col-md-3">
+                  <label for="validationDefault03" class="form-label mb-0 mt-2">Cuenta</label>
+                  <input
+                    type="text"
+                    class="form-control text-white bg-dark"
+                    name="bill"
+                    id="bill"
+                    placeholder="82-376-1500-14-312210"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--DATOS MOTOR ELÉCTRICO ACORDION-->
+              <div class="d-flex justify-content-center accordion" id="accordionExample">
+                <button class="accordion-button w-50 border rounded-top pt-1 pb-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  <h4>Datos Motor eléctrico</h4>
+                </button>
+            </div>  
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+
+                <div class="d-flex justify-content-center">
+                  <div class="card bg-transparent text-dark fw-semibold border w-50">
+                    <div class="card-body text-center">
+                      <div class="row d-flex justify-content-center"> <!--SUSTITUYE EL FORM Y CREA LA UNA SECION -->
+
+                        <div class="col-md-2">
+                          <label for="validationDefault05" class="form-label mb-0">Potencia</label>
+                          <input type="text" class="form-control text-white bg-dark" id="power" name="potencia" placeholder="40HP" required/>
+                        </div>
+                        <div class="col-md-2">
+                          <label for="validationDefault03" class="form-label mb-0">Frame</label>
+                          <input type="text" class="form-control text-white bg-dark" id="frame" name="frame" placeholder="250T" required/>
+                        </div>
+                        <div class="col-md-2">
+                          <label for="validationDefault05" class="form-label mb-0">RPM</label>
+                          <input type="text" class="form-control text-white bg-dark" id="rpm" name="rpm" placeholder="1780" required/>
+                        </div>
+                        <div class="col-md-2">
+                          <label for="validationDefault03" class="form-label mb-0">Voltaje</label>
+                          <input type="text" class="form-control text-white bg-dark" id="voltaje" name="voltaje" placeholder="230/460" required/>
+                        </div>
+                        <div class="col-md-2">
+                          <label for="validationDefault05" class="form-label mb-0">Amperaje</label>
+                          <input type="text" class="form-control text-white bg-dark" id="amperaje" name="amperaje" placeholder="30/15" required/>
+                        </div>
+                        <div class="col-md-2">
+                          <label for="validationDefault03" class="form-label mb-0">L. salida</label>
+                          <input type="text" class="form-control text-white bg-dark" id="outlines" name="linsalida" placeholder="6" required/>
+                        </div>
+                        <div class="col-md-2">
+                          <label for="validationDefault03" class="form-label mb-0 mt-2">Hz</label>
+                          <input type="text" class="form-control text-white bg-dark" id="hz" name="hz" placeholder="60" required/>
+                        </div>
+                        <div class="col-md-2">
+                          <label for="validationDefault05" class="form-label mb-0 mt-2">kVA</label>
+                          <input type="text" class="form-control text-white bg-dark" id="kva" name="kva" placeholder="H" required/>
+                        </div>
+                        <div class="col-md-2">
+                          <label for="validationDefault05" class="form-label mb-0 mt-2">#Serie</label>
+                          <input type="text" class="form-control text-white bg-dark" id="sn" name="serie" placeholder="1NAAA444GG0" required/>
+                        </div>
+                        <div class="col-md-2">
+                          <label for="validationDefault03" class="form-label mb-0 mt-2">Marca</label>
+                          <input type="text" class="form-control text-white bg-dark" id="brand" name="marca" placeholder="Siemens" required/>
+                        </div>
+                        <div class="col-md-2">
+                          <label for="validationDefault05" class="form-label mb-0 mt-2">Modelo</label>
+                          <input type="text" class="form-control text-white bg-dark" id="model" name="modelo" placeholder="1NG0-3" required/>
+                        </div>
+                        <div class="mb-2">
+                          <label for="validationTextarea" class="form-label mb-0 mt-2">Comentarios</label>
+                          <textarea class="form-control text-white bg-dark" id="description" name="comentarios" placeholder="Motor dañado hoy a las 3am, no estaba reportado por predictivo, placa de datos dañada" required></textarea>
+                          <!--<div class="invalid-feedback">-->
+                        </div>
+                      </div>
+                      <!--TERMINA EL FORM Y CREA LA UNA SECION -->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+        
+
+        <div class="col-12 mt-0 d-flex justify-content-center"><!--BOTON DE SUBMIT FORMULARIO -->
+          <button class="btn btn-primary w-50" type="submit">
+            Submit form
+          </button>
+        </div>
+      </form>
+
+      <div class="d-flex justify-content-center text-center w-100">
+        <div id="alertaGuardar" class="mt-1 alert alert-warning w-50" role="alert">
+          Tu motor ha sido Guardado.
+        </div>
+      </div>
+      <!--<div class="mt-1 d-flex justify-content-center">
+            <div class="card bg-dark w-50">
+                    <div class="card-body text-center">
+                        <i class="text-white fa-solid fa-user fa-4x"></i>
+                        <form onsubmit="guardarMotor(event)" class="mt-1 d-flex flex-column justify-content-between">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
+                            <input type="text" class="form-control" name="alias" placeholder="Alias" required>
+                            <input type="text" class="form-control" name="imagen" placeholder="Imagen" required>
+                            <div class="mt-1 d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary"> Guardar </button>
+                            </div>
+                        </form>
+                        <div id="alertaGuardar" class="mt-1 alert alert-success" role="alert">
+                            Tu motor ha sido Guardado.
+                        </div>
+                    </div>
+            </div>
+        </div>-->
+    </section>
+    <section id="buscar" class="animate_animated_fadeIn">
+      <div class="p-3 bg-dark text-white text-center">
+        <h4>Buscar Motor</h4>
+      </div>
+      <div class="p-3">
+        <input
+          id="inputBuscar"
+          onchange="buscarMotor(event)"
+          class="form-control"
+          placeholder="Número de golpe"
+          type="search"
+        />
+      </div>
+      <button
+        class="btn btn-primary ms-3"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseExample"
+        aria-expanded="false"
+        aria-controls="collapseExample"
+      >
+        Busqueda Reciente
+      </button>
+      <div>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <ul
+              class="list-group list-group-flush"
+              id="busquedasRecientesList"
+            ></ul>
+          </div>
+        </div>
+      </div>
+      <ul id="resultadosBusqueda" class="list-group"></ul>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
