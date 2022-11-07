@@ -24,7 +24,7 @@ const cardMotor = (motor) =>{
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 
                 <div class="d-flex justify-content-end gap-3">
-                    <button class="btn btn-outline-primary">Actualizar</button>
+                    <button onclick="actualizarMotor(${motor.id})" class="btn btn-outline-primary">Actualizar</button>
                     <button onclick="eliminarMotor(${motor.id})" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i> Eliminar</button>
                 </div>
             </div>
@@ -65,7 +65,7 @@ const renderizarMotores = (motores) =>{
 
 window.eliminarMotor = (id) => {
     const eliminar = confirm('¿Deseas eliminar esté Motor?');
-    if(eliminar == true){
+    if(eliminar == true) {
         const data = motores.equipos.filter((motor) => {
             return motor.id !== id;
         });
@@ -74,6 +74,20 @@ window.eliminarMotor = (id) => {
         renderizarMotores(motores.equipos);
     }
 }
+
+
+window.actualizarMotor = (id) => {
+    const data = motores.equipos.filter((motor) => {
+         if(motor.id == id) {
+            return motores.equipos;
+         }
+         
+    });
+    window.mostrarSeccion('registro');
+    
+    
+}
+
 
 export const initTodosMotores = () => {
     renderizarMotores(motores.equipos);
