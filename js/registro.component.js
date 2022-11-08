@@ -12,14 +12,16 @@ window.guardarMotor = (e) => {
     motor.id = tiempoActual.getTime();
     motores.equipos.push(motor);
     motores.guardarStorage();
-    //console.log(motores);
     elementos.alertaGuardar.style.display = '';
     setTimeout(() => {
         elementos.alertaGuardar.style.display = 'none';
         window.mostrarSeccion('todosLosMotores');
+        elementos.formulario.reset();
     }, 3000);
 }
- 
+
+
+
 export const initRegistro = () => {
     elementos.alertaGuardar.style.display = 'none';
 }

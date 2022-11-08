@@ -8,7 +8,7 @@ const init = () => {
     initBusquedaComponent();
     initRegistro();
     window.mostrarSeccion('todosLosMotores');
-    
+    elementos.formulario.reset();
 }
 
 window.mostrarSeccion = (section) => {

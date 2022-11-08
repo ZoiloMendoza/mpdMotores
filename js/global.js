@@ -3,7 +3,7 @@ import Motores from "./motores.js";
 const sectionsNode = document.querySelectorAll('section');
 
 export const elementos = {
-    formulario: document.querySelectorAll('form'),
+    formulario: document.querySelector('form'),
     aSelection: document.querySelectorAll('.nav-item a'),
     sectionsNode2: document.querySelectorAll('section'),
     sections: Array.from(sectionsNode),

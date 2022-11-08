@@ -11,15 +11,15 @@ const cardMotor = (motor) =>{
             <div class="card-body">
                 <h5 class="card-title fw-bold">${motor.punch}</h5>
                 <span class="card-text fw-normal">Motor eléctrico<span class="fw-semibold text-black"> ${motor.marca}</span>
-                 Potencia:<span class="fw-semibold text-black"> ${motor.potencia}</span>,
+                 Potencia:<span class="fw-semibold text-black"> ${motor.power}</span>,
                  Frame:<span class="fw-semibold text-black"> ${motor.frame}</span>,
                  <span class="fw-semibold text-black"> ${motor.rpm}</span> rpm,
                  <span class="fw-semibold text-black"> ${motor.hz}</span> Hz,
-                 <span class="fw-semibold text-black"> ${motor.linsalida}</span> lineas de salida,
+                 <span class="fw-semibold text-black"> ${motor.outlines}</span> lineas de salida,
                  <span class="fw-semibold text-black"> ${motor.voltaje}</span> Voltaje,
                  <span class="fw-semibold text-black"> ${motor.amperaje}</span> Amperaje,
-                 Modelo:<span class="fw-semibold text-black"> ${motor.modelo}</span>,
-                 Serie:<span class="fw-semibold text-black"> ${motor.serie}</span>,
+                 Modelo:<span class="fw-semibold text-black"> ${motor.model}</span>,
+                 Serie:<span class="fw-semibold text-black"> ${motor.sn}</span>,
                  <span class="fw-semibold text-black"> ${motor.kva}</span> codigo kVA</span>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 
@@ -31,29 +31,16 @@ const cardMotor = (motor) =>{
             </div>
         </div>
     </div>`
-    
-    //`<div class="card col-sm-4 ms-1 mt-1">
-    //<img src="${motor.imagen}" class="img-card-custom" alt="...">
-    //<div class="card-body">
-    //<h5 class="card-title">${motor.alias}</h5>
-    //<p class="card-text">Nombre real: ${motor.nombre}</p>
-    //<div class="d-flex justify-content-center gap-3">
-    //    <button class="btn btn-primary"><i class="fa-solid fa-paintbrush"></i></button>
-    //    <button onclick="eliminarMotor(${motor.id})" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-    //</div>
-    //</div>`;
-
-
     return card;
 }
 
 const renderizarMotores = (motores) =>{
 
-    const cardsEnDiv = cardsMotores.children;
+    const cardsEnDiv = elementos.cardsMotores.children;
     if (cardsEnDiv.length > 0) {
         const cards = Array.from(cardsEnDiv);
         cards.forEach((card) =>{
-            cardsMotores.removeChild(card);
+            elementos.cardsMotores.removeChild(card);
         })        
     }
 
@@ -79,7 +66,24 @@ window.eliminarMotor = (id) => {
 window.actualizarMotor = (id) => {
     const data = motores.equipos.filter((motor) => {
          if(motor.id == id) {
-            return motores.equipos;
+            const claves = Object.keys(motor);
+            const valores = Object.values(motor);
+            let contador = 0;
+            claves.forEach((clave) => {
+                let ejemplo = document.getElementById(clave);
+            //document.getElementById(clave).value = clave.valor;
+            if(ejemplo !== null) {
+                console.log(ejemplo.value = valores[contador]);
+                contador++
+            }
+
+            })
+            
+           // 
+           //console.log(formulario.user);
+           // console.log(motor.user)
+
+           // return motores.equipos;
          }
          
     });
