@@ -6,12 +6,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 body
 {
-    background: #fdfdff;
+    background: #dcdce1;
+  
 }
 
 .img-list
