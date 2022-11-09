@@ -7,7 +7,7 @@ const init = () => {
     initTodosMotores();
     initBusquedaComponent();
     initRegistro();
-    window.mostrarSeccion('todosLosMotores');
+    window.mostrarSeccion('registro');//colocar todosLosMotores
     
 }
 
@@ -18,7 +18,7 @@ window.mostrarSeccion = (section) => {
         }else {
             sectionElement.style.display = 'none';
         }
-        if(sectionElement.id == 'todosLosMotores'){
+        if(sectionElement.id == 'registro'){  //colocar todosLosMotores
             initTodosMotores();
         }
     });
