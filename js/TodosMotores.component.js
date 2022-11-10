@@ -22,7 +22,6 @@ const cardMotor = (motor) =>{
                  Serie:<span class="fw-semibold text-black"> ${motor.sn}</span>,
                  <span class="fw-semibold text-black"> ${motor.kva}</span> codigo kVA</span>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
                 <div class="d-flex justify-content-end gap-3">
                     <button onclick="actualizarMotor(${motor.id})" class="btn btn-outline-primary">Actualizar</button>
                     <button onclick="eliminarMotor(${motor.id})" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i> Eliminar</button>
@@ -43,7 +42,6 @@ const renderizarMotores = (motores) =>{
             elementos.cardsMotores.removeChild(card);
         })        
     }
-
     motores.forEach((motor) =>{
         const card = cardMotor(motor);
         elementos.cardsMotores.insertAdjacentHTML('afterbegin', card);
@@ -62,37 +60,32 @@ window.eliminarMotor = (id) => {
     }
 }
 
-
 window.actualizarMotor = (id) => {
-    const data = motores.equipos.filter((motor) => {
+    const actualizar = confirm('¿Deseas actualizar esté Motor?');
+    if(actualizar == true) {
+        const data = motores.equipos.filter((motor) => {
          if(motor.id == id) {
             const claves = Object.keys(motor);
             const valores = Object.values(motor);
             let contador = 0;
             claves.forEach((clave) => {
                 let ejemplo = document.getElementById(clave);
-            //document.getElementById(clave).value = clave.valor;
-            if(ejemplo !== null) {
-                console.log(ejemplo.value = valores[contador]);
-                contador++
-            }
-
-            })
-            
-           // 
-           //console.log(formulario.user);
-           // console.log(motor.user)
-
-           // return motores.equipos;
+                if(ejemplo !== null) {
+                    console.log(ejemplo.value = valores[contador]);
+                    contador++
+                }
+            });
          }
-         
-    });
-    window.mostrarSeccion('registro');
-    
-    
+         return motor.id !== id;
+        });
+        motores.equipos = data;
+        motores.guardarStorage();
+        //console.log(data);
+        window.mostrarSeccion('registro');
+    }
 }
-
 
 export const initTodosMotores = () => {
     renderizarMotores(motores.equipos);
 }
+
