@@ -11,7 +11,7 @@
   </head>
   
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand fs-4" href="#">Daltile MPd</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,33 +43,33 @@
         <div class="row" id="cardsMotores"></div>
       </div>
     </section>
-    <section id="registro" class="animate_animated_fadeIn w-100">
+    <section id="registro" class="animate_animated_fadeIn"><!--tenia un w-100-->
       <div class="p-3 bg-primary text-white text-center">
         <label class="fs-4">Registrar Motor</label>
       </div>
       <div class="col-12 mt-0 d-flex justify-content-center px-0 mx-0">
-        <div id="alertaGuardar" class="alert alert-warning w-50 text-center py-2" role="alert">
+        <div id="alertaGuardar" class="alert alert-warning text-center py-2 w-75" role="alert">
          Tu motor ha sido Guardado.
         </div>
       </div>
-      <form onsubmit="guardarMotor(event)" class="row w-100">
+      <form onsubmit="guardarMotor(event)" class="mt-1 d-flex flex-column justify-content-between"> <!--tenia un w-100-->
 
         <div class="d-flex justify-content-center px-0 mt-2">
-          <div class="card bg-transparent text-primary w-50">
+          <div class="card bg-transparent text-primary w-75">
             <div class="card-body font-monospace text-center">
               <div class="row d-flex justify-content-center">
                 <!--SUSTITUYE EL FORM Y CREA LA UNA SECION -->
                 <div class="col-md-2">
                   <label for="validationDefault01" class="form-label fs-6 mb-0">OS</label>
-                  <input type="text" class="form-control border border-3 border border-secundary" name="os" id="os" placeholder="77500" required/>
+                  <input type="text" class="form-control border border-3 border border-secundary" name="os" id="os" placeholder="O. Salida" required/>
                 </div>
                 <div class="col-md-2">
                   <label for="validationDefault02" class="form-label fs-6 mb-0">OT</label>
-                  <input type="text" class="form-control border border-3" name="ot" id="ot" placeholder="80500" required/>
+                  <input type="text" class="form-control border border-3" name="ot" id="ot" placeholder="O. Trabajo" required/>
                 </div>
                 <div class="col-md-2">
                   <label for="validationDefaultUsername" class="form-label fs-6 mb-0">Golpe</label>
-                  <input type="text" class="form-control border border-3" name="punch" id="punch" placeholder="A-0100" required/>
+                  <input type="text" class="form-control border border-3" name="punch" id="punch" placeholder="# Golpe" required/>
                 </div>
                 <div class="col-md-2">
                   <label for="validationDefault04" class="form-label fs-6 mb-0">Placa</label>
@@ -90,9 +90,12 @@
             </div>
           </div>
         </div>
+
+
+        
     <!--DATOS USUARIO ACORDION-->
     <div class="d-flex justify-content-center accordion px-0" id="accordionExample">
-          <button class="accordion-button bg-transparent text-primary w-50  border rounded-top border-2 pt-1 pb-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <button class="accordion-button bg-transparent text-primary w-75 border rounded-top border-2 pt-1 pb-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <label class="fs-5">Datos cliente</label>
           </button>
     </div>  
@@ -100,13 +103,13 @@
       <div class="accordion-body">
 
         <div class="d-flex justify-content-center px-0">
-          <div class="card bg-transparent border-top-0 text-primary fs-6 mt-0 mb-1 w-50">
+          <div class="card bg-transparent border-top-0 text-primary fs-6 mt-0 mb-1 w-75">
             <div class="card-body text-center">
               
               <div class="row d-flex justify-content-center">
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <label for="validationDefault03" class="form-label mb-0">Usuario</label>
-                  <input type="text" class="form-control" name="user" id="user" placeholder="Juan Cuevas" required/>
+                  <input type="text" class="form-control" name="user" id="user" placeholder="Nombre Completo" required/>
                 </div>
                 <div class="col-md-3">
                   <label for="validationDefault03" class="form-label mb-0">Planta</label>
@@ -129,11 +132,11 @@
                 </div>
                 <div class="col-md-4">
                   <label for="validationDefault05" class="form-label mb-0 mt-2">Equipo</label>
-                  <input type="text" class="form-control" name="equipment" id="equipment" placeholder="Ventilador Enfriamiento" required/>
+                  <input type="text" class="form-control" name="equipment" id="equipment" placeholder="Ventilador combustion, horno 1" required/>
                 </div>
                 <div class="col-md-3">
                   <label for="validationDefault03" class="form-label mb-0 mt-2">Aprobador</label>
-                  <input type="text" class="form-control" name="approver" id="approver" placeholder="Sandra Marroquin" required/>
+                  <input type="text" class="form-control" name="approver" id="approver" placeholder="Nombre completo" required/>
                 </div>
                 <div class="col-md-2">
                   <label for="validationDefault03" class="form-label mb-0 mt-2">Tag</label>
@@ -141,7 +144,7 @@
                 </div>
                 <div class="col-md-3">
                   <label for="validationDefault03" class="form-label mb-0 mt-2">Cuenta</label>
-                  <input type="text" class="form-control" name="bill" id="bill" placeholder="82-376-1500-14-312210" required/>
+                  <input type="text" class="form-control" name="bill" id="bill" placeholder="00-000-0000-00-000000" required/>
                 </div>
               </div>
             </div>
@@ -152,7 +155,7 @@
     </div>
         <!--DATOS MOTOR ELÉCTRICO ACORDION-->
             <div class="d-flex justify-content-center accordion px-0" id="accordionExample">
-                <button class="accordion-button collapsed bg-transparent w-50 text-primary border rounded-top border-2 pt-1 pb-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="accordion-button collapsed bg-transparent w-75 text-primary border rounded-top border-2 pt-1 pb-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   <label class="fs-5">Datos motor eléctrico</label>
                 </button>
             </div>  
@@ -160,7 +163,7 @@
               <div class="accordion-body">
 
                 <div class="d-flex justify-content-center px-0">
-                  <div class="card bg-transparent border-top-0 text-primary fs-6 w-50">
+                  <div class="card bg-transparent border-top-0 text-primary fs-6 w-75">
                     <div class="card-body text-center">
                       <div class="row d-flex justify-content-center"> <!--SUSTITUYE EL FORM Y CREA LA UNA SECION -->
 
@@ -222,8 +225,19 @@
               </div>
             </div>
       
+            <div class="d-flex justify-content-center accordion px-0" id="accordionExample">
+              <button class="accordion-button collapsed bg-transparent w-75 text-primary border rounded-top border-2 pt-1 pb-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <label class="fs-5">Proceso</label>
+              </button>
+          </div>  
+          <div id="collapseThree" class="accordion-collapse collapse px-0" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <!--INCERTAR DEPENDIENDO DEL STATUS DEL MOTOR-->
+            </div>
+          </div>
+
         <div class="col-12 mt-0 d-flex justify-content-center px-0"><!--BOTON DE SUBMIT FORMULARIO -->
-          <button class="btn btn-primary w-50" type="submit" value="enviar">
+          <button class="btn btn-primary w-75" type="submit" value="enviar">
             Guardar Motor
           </button>
         </div>

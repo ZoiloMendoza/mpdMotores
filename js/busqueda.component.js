@@ -2,7 +2,7 @@ import { elementos, motores } from "./global.js";
 
 const itemSearch = (motor) => {
     const li = `<li class="list-group-item ms-3">
-    <img src="${motor.imagen}" class="img-list" alt=""> ${motor.alias} | ${motor.nombre}
+    <img src="${motor.os}" class="img-list" alt=""> ${motor.os} | ${motor.punch}
     </li>`;
     return li;
 }
@@ -28,11 +28,9 @@ const limpiarBusquedas = () => {
 window.buscarMotor = (e) => {
 
     const term = e.target.value.toLowerCase();
-
     if(!term){
         return;
     }
-
     const motoresLista = resultadosBusqueda.children;
     if(motoresLista.length > 0){
         const motoresChield = Array.from(motoresLista);
@@ -43,8 +41,8 @@ window.buscarMotor = (e) => {
     limpiarBusquedas();
 
     const resultado = motores.equipos.filter((motor) => {
-        const nombre = motor.nombre.toLowerCase();
-        const alias = motor.alias.toLowerCase();
+        const nombre = motor.os.toLowerCase();
+        const alias = motor.punch.toLowerCase();
         return nombre.includes(term) || alias.includes(term);
     });
 

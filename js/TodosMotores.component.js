@@ -10,7 +10,7 @@ const cardMotor = (motor) =>{
             <div class="col-md-11">
             <div class="card-body">
                 <h5 class="card-title fw-bold">${motor.punch}</h5>
-                <span class="card-text fw-normal">Motor eléctrico<span class="fw-semibold text-black"> ${motor.marca}</span>
+                <span class="card-text fw-normal">Motor eléctrico<span class="fw-semibold text-black"> ${motor.brand}</span>
                  Potencia:<span class="fw-semibold text-black"> ${motor.power}</span>,
                  Frame:<span class="fw-semibold text-black"> ${motor.frame}</span>,
                  <span class="fw-semibold text-black"> ${motor.rpm}</span> rpm,
